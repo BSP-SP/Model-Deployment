@@ -32,7 +32,14 @@
         </form>
     </div>
     <div>
-        <p id="display">{{ prediction}}</p>
+        {% if prediction %}
+        {% if prediction == 1 %}
+        <h2 style="color: red">Phishing</h2>
+        {% else %}
+        <h2 style="color: green">Not Phishing</h2>
+        {% endif %}
+        {% endif %}
+        <!-- <p id="display"></p> -->
     </div>
 </body>
 

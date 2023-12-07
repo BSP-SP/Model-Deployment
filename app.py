@@ -1,4 +1,4 @@
-from flask import Flask,render_template,request
+from flask import Flask,render_template,request,jsonify
 from transformers import BertTokenizer
 import torch
 
@@ -52,9 +52,20 @@ def predict():
         message = request.form.get('content')
     
     prediction = predict_model(message)
+    prediction = 1 if prediction == 1 else -1
     
-    prediction = 'Phishing' if prediction == 1 else 'Not Phishing'
     return render_template("index.html", prediction=prediction, text=message)
+
+
+
+@app.route('/api/predict', methods=['POST'])
+def predict_api():
+    data = request.get_json(force=True)  # Get data posted as a json
+    message=data['content']
+    prediction = predict_model(data)
+    prediction = 1 if prediction == 1 else -1
+    
+    return jsonify({'prediction': prediction, 'email': message})  # Return prediction
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True) 
