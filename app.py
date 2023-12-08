@@ -1,5 +1,5 @@
 from flask import Flask,render_template,request,jsonify
-from utils import predict_model
+from utils import predict_model,preprocess_text
 app = Flask(__name__)
 
 
@@ -14,7 +14,7 @@ def home():
 def predict():
     if request.method=="POST":
         message = request.form.get('content')
-    
+    message=preprocess_text(message)
     prediction = predict_model(message)
     prediction = 1 if prediction == 1 else -1
     
@@ -26,6 +26,7 @@ def predict():
 def predict_api():
     data = request.get_json(force=True)  # Get data posted as a json
     message=data['content']
+    message=preprocess_text(message)
     prediction = predict_model(message)
     prediction = 1 if prediction == 1 else -1
     
