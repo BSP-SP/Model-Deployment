@@ -16,19 +16,13 @@ counterfeit websites, or share their confidential information.
 ## Table of Contents
 
 1. [Introduction](#introduction)
-2. [Deliverables](#deliverables)
-3. [Machine Learning / Deep Learning Algorithms](#ml-dl-algorithms)
-4. [Clean Coding Practices](#clean-coding-practices)
-5. [Reusability and Reproducibility](#reusability-and-reproducibility)
-6. [Installation](#installation)
-7. [Training Pipeline](#training-pipeline)
-8. [Inference](#inference)
-9. [Flask Application](#flask-application)
-10. [Evaluation and Metrics](#evaluation-and-metrics)
-11. [Dependencies](#dependencies)
-12. [Docker](#docker)
-13. [Contributing](#contributing)
-14. [License](#license)
+2. [Algorithms Used](#ml-dl-algorithms)
+3. [Environment Setup](#environment-setup)
+4. [Training & Testing ](#training-pipeline)
+5. [Flask Application](#flask-application)
+6. [Evaluation and Metrics](#evaluation-and-metrics)
+7. [Docker Build and Run](#docker)
+8. [License](#license)
 
 ## Introduction
 
@@ -39,20 +33,17 @@ One of the most significant concerns is the prevalence of phishing attacks targe
 users with the intent of obtaining their seed phrases and subsequently draining their wallets
 for fraudulent activities.
 
-## Deliverables
+Here i build an end-to-end training pipeline to train a phishing
+message detection model using a web3 phishing dataset, with a Large Language Model.
 
-- Working code for the end-to-end training pipeline using Python scripts.
-- Working code for loading the trained model and performing inference using Python scripts.
-- Evaluation of the trained model with documented metric results in a README.
-- Working code for the Flask application.
-- README with instructions on how to execute the training pipeline.
-- README on how to run the packaged Flask application.
-- A `requirements.txt` file for all dependencies.
-- Dockerfile(s) or `docker-compose.yaml` file to start the frontend and backend application.
+![Architecture](image-2.png)
+
 
 ## Algorithms Used
 
 ### BERT Pretrained Model with Fine-Tuning
+
+![Bert General Architecture ](image-1.png)
 
 I Utilized the BERT (Bidirectional Encoder Representations from Transformers) model for our phishing message detection task. BERT is a powerful Large Language Model (LLM) that excels in capturing contextual information and semantic nuances in natural language.
 
@@ -122,7 +113,7 @@ Activate the virtual environment:
 ```bash
     pip install -r requirements.txt
 ```
-## Training Pipeline
+## Training & Testing 
 
 Explain the steps to execute the end-to-end training pipeline.
 
@@ -130,28 +121,41 @@ Explain the steps to execute the end-to-end training pipeline.
 # Example commands to run the training pipeline
 python train.py --arguments
 ```
+
+To train the model, you need to place the data file inside the DATA folder and specify the file name as an argument along with the number of epochs.Default epoch value is 5.
+
+```bash
+# Example 
+python train.py DS_test_data.csv --epochs 10
+```
+
+## Testing
+
+
+## Flask Application
 ```bash
 #Example commands to run the Flask application
 python app.py 
 ```
+
+
 ## Evaluation and Metrics
 
-|Metric|Test Metric|
-|:---:|:---:|
+|Metric|Value|
+
 |Precision|	0.866|
-|:---:|:---:|
+
 |Recall|	0.834|
-|:---:|:---:|
+
 |F1Score|	0.847|
 
 
 
-```bash
-#Docker
+## Docker Build and Run
 
+```bash
 # Example commands to build and run Docker image
 docker build -t your-image-name .
 docker run -p 5000:5000 your-image-name
 ```
 
-![Alt text](image.png)

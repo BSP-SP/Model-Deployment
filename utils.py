@@ -6,6 +6,28 @@ import re
 
 
 
+def read_data_file(file_path):
+    """
+    Read data from either CSV or Excel file.
+
+    Parameters:
+    - file_path (str): Path to the CSV or Excel file.
+
+    Returns:
+    - pd.DataFrame: A pandas DataFrame containing the data.
+    """
+    try:
+        # Attempt to read as CSV
+        data = pd.read_csv(file_path)
+        return data
+    except pd.errors.ParserError:
+        try:
+            # Attempt to read as Excel
+            data = pd.read_excel(file_path)
+            return data
+        except pd.errors.ParserError:
+            # If neither CSV nor Excel format is successful, raise an error
+            raise ValueError(f"Unable to read data from the file: {file_path}")
 
 
 def preprocess_text(text):

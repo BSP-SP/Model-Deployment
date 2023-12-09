@@ -1,4 +1,4 @@
-from utils import preprocess_text
+from utils import preprocess_text,read_data_file
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import precision_recall_fscore_support
@@ -12,7 +12,21 @@ warnings.filterwarnings("ignore")
 
 def train_model(path,epochs=5):
 
-    df=pd.read_csv(path)
+    """
+     
+    Train and Test the model 
+
+    Parameters:
+    - file_path (str): Path to the CSV or Excel file.
+    -epoch (int):epoch to train the model
+
+    Returns:
+    - model object
+    
+    
+    """
+
+    df=read_data_file(f'DATA/{path}')
     # Drop any rows with missing values
     df = df.dropna()
     # Preprocess the text column
@@ -52,7 +66,7 @@ if __name__=='__main__':
     parser = argparse.ArgumentParser(description="Train a model")
 
     # Add the required argument for the path of the training data
-    parser.add_argument("train_data_path", type=str, help="Path to the training data")
+    parser.add_argument("train_data_file", type=str, help=" training data")
 
     # Add an optional argument for the number of epochs (default is 10)
     parser.add_argument("--epochs", type=int, default=5, help="Number of epochs (default is 5)")
@@ -61,4 +75,4 @@ if __name__=='__main__':
     args = parser.parse_args()
 
     # Call the train_model function with the provided arguments
-    train_model(args.train_data_path, args.epochs)
+    train_model(args.train_data_file, args.epochs)
