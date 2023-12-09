@@ -1,7 +1,17 @@
 # PHISHING CLASSIFIER
 
 
-Brief description of your project.
+Web3 phishing attacks are a critical issue in the modern blockchain landscape. These
+attacks involve the use of deceptive and fraudulent tactics to manipulate users into revealing
+their sensitive information, primarily their seed phrases. Seed phrases, also known as
+mnemonic phrases or recovery phrases, are sets of words that act as a cryptographic key to
+access and control users' wallets and assets within the Web3 ecosystem.
+The core problem lies in the fact that users often lack awareness and knowledge about the
+security practices required to protect their seed phrases. Phishing attackers exploit this
+vulnerability by deploying convincing phishing messages through various communication
+channels, including email, social media, messaging apps, and even fake dApps. These
+messages typically prompt users to click on malicious links, enter their seed phrases on
+counterfeit websites, or share their confidential information.
 
 ## Table of Contents
 
@@ -77,7 +87,7 @@ Provide the evaluation results and metrics obtained from the trained model.
 List all dependencies with versions in the requirements.txt file.
 
 ```bash
-##Docker
+#Docker
 
 # Example commands to build and run Docker image
 docker build -t your-image-name .
