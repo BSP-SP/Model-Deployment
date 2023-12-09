@@ -1,5 +1,6 @@
 from utils import preprocess_text,read_data_file
-from config import *
+from transformers import BertTokenizer
+import torch
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import precision_recall_fscore_support
@@ -35,6 +36,14 @@ def train_model(path,epochs=5):
     # Split the dataset into training and testing sets
     train_data, test_data = train_test_split(df, test_size=0.2, random_state=42)
 
+    # Load the pre-trained BERT tokenizer 
+    tokenizer_path='bert-base-uncased'
+    tokenizer = BertTokenizer.from_pretrained(tokenizer_path)
+    # Check if a GPU is available, otherwise use the CPU
+    device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+
+    # Set the maximum length for tokenized sequences
+    max_len=512
     
     classifier = BertClassifier(
         model_path=tokenizer_path,
