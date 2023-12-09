@@ -16,12 +16,12 @@ counterfeit websites, or share their confidential information.
 ## Table of Contents
 
 1. [Introduction](#introduction)
-2. [Algorithms Used](#ml-dl-algorithms)
+2. [Algorithms Used](#algorithms-used)
 3. [Environment Setup](#environment-setup)
-4. [Training & Testing ](#training-pipeline)
+4. [Training & Testing ](#training-&-testing)
 5. [Flask Application](#flask-application)
 6. [Evaluation and Metrics](#evaluation-and-metrics)
-7. [Docker Build and Run](#docker)
+7. [Docker Build and Run](#docker-build-and-run)
 8. [License](#license)
 
 ## Introduction
@@ -131,7 +131,16 @@ python train.py DS_test_data.csv --epochs 10
 
 ## Testing
 
+```bash
+# Example commands to run the training pipeline
+python test.py --arguments
+```
+To test the model, you need to place the data file inside the DATA folder and specify the file name as an argument .
 
+```bash
+# Example 
+python test.py test_data.csv 
+```
 ## Flask Application
 ```bash
 #Example commands to run the Flask application
@@ -157,3 +166,6 @@ docker build -t your-image-name .
 docker run -p 5000:5000 your-image-name
 ```
 
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
