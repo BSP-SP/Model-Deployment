@@ -131,7 +131,16 @@ python train.py DS_test_data.csv --epochs 10
 
 ## Testing
 
+```bash
+# Example commands to run the training pipeline
+python test.py --arguments
+```
+To test the model, you need to place the data file inside the DATA folder and specify the file name as an argument .
 
+```bash
+# Example 
+python test.py test_data.csv 
+```
 ## Flask Application
 ```bash
 #Example commands to run the Flask application
@@ -157,3 +166,6 @@ docker build -t your-image-name .
 docker run -p 5000:5000 your-image-name
 ```
 
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
