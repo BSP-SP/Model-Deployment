@@ -9,6 +9,7 @@ from bert_dataset import CustomDataset
 class BertClassifier:
 
     def __init__(self, model_path, tokenizer_path, n_classes=2, epochs=1, model_save_path='/content/bert.pt'):
+        # Initialize the BERT model, tokenizer, and other parameters
         self.model = BertForSequenceClassification.from_pretrained(model_path)
         self.tokenizer = BertTokenizer.from_pretrained(tokenizer_path)
         self.device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
@@ -38,6 +39,7 @@ class BertClassifier:
         self.loss_fn = torch.nn.CrossEntropyLoss().to(self.device)
             
     def fit(self):
+        # Train the model and calculate training accuracy and loss
         self.model = self.model.train()
         losses = []
         correct_predictions = 0
@@ -70,6 +72,7 @@ class BertClassifier:
         return train_acc, train_loss
     
     def eval(self):
+        # Evaluate the model on the validation set and calculate accuracy and loss
         self.model = self.model.eval()
         losses = []
         correct_predictions = 0
@@ -95,6 +98,7 @@ class BertClassifier:
         return val_acc, val_loss
     
     def train(self):
+        # Train the model for the specified number of epochs
         best_accuracy = 0
         for epoch in range(self.epochs):
             print(f'Epoch {epoch + 1}/{self.epochs}')
@@ -112,6 +116,7 @@ class BertClassifier:
         self.model = torch.load(self.model_save_path)
     
     def predict(self, text):
+         # Make predictions on  text input
         encoding = self.tokenizer.encode_plus(
             text,
             add_special_tokens=True,
