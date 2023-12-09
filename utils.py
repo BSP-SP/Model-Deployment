@@ -32,7 +32,7 @@ def read_data_file(file_path):
 
 def preprocess_text(text):
 
-     """
+    """
     clean the data
 
     Parameters:
