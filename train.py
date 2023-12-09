@@ -1,4 +1,5 @@
 from utils import preprocess_text,read_data_file
+from config import *
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import precision_recall_fscore_support
@@ -36,8 +37,8 @@ def train_model(path,epochs=5):
 
     
     classifier = BertClassifier(
-        model_path='cointegrated/rubert-tiny',
-        tokenizer_path='cointegrated/rubert-tiny',
+        model_path=tokenizer_path,
+        tokenizer_path=tokenizer_path,
         n_classes=2,
         epochs=epochs,
         model_save_path='Models/bert.pt'

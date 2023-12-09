@@ -1,5 +1,6 @@
 
-from transformers import BertTokenizer
+
+from config import *
 import torch
 import pandas as pd
 import re
@@ -39,7 +40,7 @@ def preprocess_text(text):
     - text (str): 
 
     Returns:
-    - pd.DataFrame: A pandas DataFrame containing the data.
+    - text: str
     """
     # Clean the text by removing special characters, URLs, etc.
     emoj=re.compile("["
@@ -69,11 +70,19 @@ def preprocess_text(text):
 
 
 def predict_model( text):
-        
-        tokenizer = BertTokenizer.from_pretrained('cointegrated/rubert-tiny')
-        device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-        model=torch.load('Models/bert.pt')
-        max_len=512
+        """
+        For test data prediction
+
+        Parameters:
+        - text (str): 
+
+        Returns:
+        - prediction :int
+        """
+        # Tokenize the input text using the BERT tokenizer
+        # Load the pre-trained BERT model from the saved file
+        model_path='Models/bert.pt'
+        model=torch.load(model_path)
         encoding = tokenizer.encode_plus(
             text,
             add_special_tokens=True,
@@ -84,21 +93,21 @@ def predict_model( text):
             return_attention_mask=True,
             return_tensors='pt',
         )
-        
+        # Create a dictionary to store input information
         out = {
               'text': text,
               'input_ids': encoding['input_ids'].flatten(),
               'attention_mask': encoding['attention_mask'].flatten()
           }
-        
+        # Move the input tensors to the specified device (GPU or CPU)
         input_ids = out["input_ids"].to(device)
         attention_mask = out["attention_mask"].to(device)
-        
+        # Make predictions using the pre-trained BERT model
         outputs = model(
             input_ids=input_ids.unsqueeze(0),
             attention_mask=attention_mask.unsqueeze(0)
         )
-        
+        # Extract the predicted class using argmax and convert to a NumPy array
         prediction = torch.argmax(outputs.logits, dim=1).cpu().numpy()[0]
 
         return prediction
