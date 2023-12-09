@@ -3,6 +3,7 @@ import pandas as pd
 from sklearn.metrics import precision_recall_fscore_support
 from bert_dataset import CustomDataset
 from bert_classifier import BertClassifier
+from transformers import BertTokenizer
 import argparse
 import warnings
 warnings.filterwarnings("ignore")
@@ -35,11 +36,14 @@ def test_model(path):
     labels = list(df['gen_label'])
 
     predictions = [predict_model(t) for t in texts]
+    df['predictions']=predictions
 
+    df.to_csv('DATA/test_data_with_prediction.csv',index=False)
     precision, recall, f1score = precision_recall_fscore_support(labels, predictions,average='macro')[:3]
 
     print(f'precision: {precision}, recall: {recall}, f1score: {f1score}')
 
+    
 
 
 if __name__ == "__main__":

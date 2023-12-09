@@ -152,9 +152,9 @@ python app.py
 
 |Metric|Value|
 |---  | --- |
-|Precision|	0.866|
-|Recall|	0.834|
-|F1Score|	0.847|
+|Precision|	0.893|
+|Recall|	0.879|
+|F1Score|	0.885|
 
 
 

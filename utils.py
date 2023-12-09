@@ -1,10 +1,10 @@
 
 
-from config import *
+
 import torch
 import pandas as pd
 import re
-
+from transformers import BertTokenizer
 
 
 def read_data_file(file_path):
@@ -79,7 +79,15 @@ def predict_model( text):
         Returns:
         - prediction :int
         """
-        # Tokenize the input text using the BERT tokenizer
+        # Tokenize the input text using the BERT tokenizer 
+        # Load the pre-trained BERT tokenizer 
+        tokenizer_path='bert-base-uncased'
+        tokenizer = BertTokenizer.from_pretrained(tokenizer_path)
+        # Check if a GPU is available, otherwise use the CPU
+        device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+
+        # Set the maximum length for tokenized sequences
+        max_len=512
         # Load the pre-trained BERT model from the saved file
         model_path='Models/bert.pt'
         model=torch.load(model_path)
