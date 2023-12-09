@@ -59,9 +59,11 @@ I Utilized the BERT (Bidirectional Encoder Representations from Transformers) mo
 1. Pretrained Model:
 
 I employed a pretrained BERT model, leveraging its knowledge gained from a vast amount of diverse textual data.
+
 2. Fine-Tuning:
 
 To adapt the pretrained BERT model to the specific task of phishing message detection, i performed fine-tuning on our custom web3 phishing dataset. This process involved training the model on our labeled dataset to enhance its ability to recognize phishing patterns within messages.
+
 3. BERT Tokenizer:
 
 In conjunction with the BERT model, i utilized the BERT tokenizer. The tokenizer breaks down input text into subwords and converts them into numerical representations suitable for input into the BERT model.
@@ -101,29 +103,24 @@ Clone this repository to your local machine:
     Create a virtual environment (recommended but optional):
 ```bash
       python -m venv venv
-
-
 ```
+
 Activate the virtual environment:
 
-        On Windows:
+    On Windows:
 
-        ```bash
+    ```bash
             .\venv\Scripts\activate
+    ```      
+    On macOS/Linux:
 
-        ```      
-        On macOS/Linux:
-
-        ```bash
+    ```bash
             source venv/bin/activate
-        ```   
+    ```   
 3. Install Dependencies:
 
 ```bash
-      pip install -r requirements.txt
-
-
-
+    pip install -r requirements.txt
 ```
 ## Training Pipeline
 
@@ -139,11 +136,15 @@ python app.py
 ```
 ## Evaluation and Metrics
 
-Provide the evaluation results and metrics obtained from the trained model.
+|Metric|Test Metric|
+|:---:|:---:|
+|Precision|	0.866|
+|:---:|:---:|
+|Recall|	0.834|
+|:---:|:---:|
+|F1Score|	0.847|
 
-##Dependencies
 
-List all dependencies with versions in the requirements.txt file.
 
 ```bash
 #Docker
