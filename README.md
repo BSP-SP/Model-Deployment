@@ -16,12 +16,12 @@ counterfeit websites, or share their confidential information.
 ## Table of Contents
 
 1. [Introduction](#introduction)
-2. [Algorithms Used](#ml-dl-algorithms)
+2. [Algorithms Used](#algorithms-used)
 3. [Environment Setup](#environment-setup)
-4. [Training & Testing ](#training-pipeline)
+4. [Training & Testing ](#Training-&-Testing)
 5. [Flask Application](#flask-application)
 6. [Evaluation and Metrics](#evaluation-and-metrics)
-7. [Docker Build and Run](#docker)
+7. [Docker Build and Run](#Docker-Build-and-Run)
 8. [License](#license)
 
 ## Introduction
