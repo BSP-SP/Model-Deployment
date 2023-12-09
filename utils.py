@@ -31,6 +31,16 @@ def read_data_file(file_path):
 
 
 def preprocess_text(text):
+
+     """
+    clean the data
+
+    Parameters:
+    - text (str): 
+
+    Returns:
+    - pd.DataFrame: A pandas DataFrame containing the data.
+    """
     # Clean the text by removing special characters, URLs, etc.
     emoj=re.compile("["
         u"\U0001F600-\U0001F64F"  # emoticons
