@@ -90,24 +90,22 @@ Clone this repository to your local machine:
         cd Model-Deployment
 
 ```
-2. Create and Activate Virtual Environment (Optional):
-    Create a virtual environment (recommended but optional):
-```bash
-      python -m venv venv
-```
 
-Activate the virtual environment:
+2. Activate the virtual environment:
 
     On Windows:
 
     ```bash
-            .\venv\Scripts\activate
+
+        .\ethlas\Scripts\activate
     ```      
+
     On macOS/Linux:
 
     ```bash
-            source venv/bin/activate
+        source ethlas/bin/activate
     ```   
+
 3. Install Dependencies:
 
 ```bash
@@ -115,7 +113,7 @@ Activate the virtual environment:
 ```
 ## Training & Testing 
 
-Explain the steps to execute the end-to-end training pipeline.
+steps to execute the end-to-end training pipeline.
 
 ```bash
 # Example commands to run the training pipeline
