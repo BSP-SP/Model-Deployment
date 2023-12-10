@@ -22,7 +22,8 @@ counterfeit websites, or share their confidential information.
 5. [Flask Application](#flask-application)
 6. [Evaluation and Metrics](#evaluation-and-metrics)
 7. [Docker Build and Run](#docker-build-and-run)
-8. [License](#license)
+8. [Front End](#front-end)
+9. [License](#license)
 
 ## Introduction
 
@@ -164,7 +165,7 @@ docker build -t your-image-name .
 docker run -p 5000:5000 your-image-name
 ```
 
-## Phishing Classifier Front End
+## Front End
 
 ![Front end](image-3.png)
 ## License
