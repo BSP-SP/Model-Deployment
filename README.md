@@ -22,7 +22,8 @@ counterfeit websites, or share their confidential information.
 5. [Flask Application](#flask-application)
 6. [Evaluation and Metrics](#evaluation-and-metrics)
 7. [Docker Build and Run](#docker-build-and-run)
-8. [License](#license)
+8. [Front End](#front-end)
+9. [License](#license)
 
 ## Introduction
 
@@ -90,24 +91,22 @@ Clone this repository to your local machine:
         cd Model-Deployment
 
 ```
-2. Create and Activate Virtual Environment (Optional):
-    Create a virtual environment (recommended but optional):
-```bash
-      python -m venv venv
-```
 
-Activate the virtual environment:
+2. Activate the virtual environment:
 
     On Windows:
 
     ```bash
-            .\venv\Scripts\activate
+
+        .\ethlas\Scripts\activate
     ```      
+
     On macOS/Linux:
 
     ```bash
-            source venv/bin/activate
+        source ethlas/bin/activate
     ```   
+
 3. Install Dependencies:
 
 ```bash
@@ -115,7 +114,7 @@ Activate the virtual environment:
 ```
 ## Training & Testing 
 
-Explain the steps to execute the end-to-end training pipeline.
+steps to execute the end-to-end training pipeline.
 
 ```bash
 # Example commands to run the training pipeline
@@ -166,6 +165,9 @@ docker build -t your-image-name .
 docker run -p 5000:5000 your-image-name
 ```
 
+## Front End
+
+![Front end](image-3.png)
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
